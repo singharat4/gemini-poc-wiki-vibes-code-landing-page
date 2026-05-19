@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS Dashboard POC</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i data-lucide="layout-dashboard" class="logo-icon"></i>
+                    <span>VibePOS</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active"><i data-lucide="home"></i> Dashboard</a>
+                <a href="#" class="nav-item"><i data-lucide="shopping-cart"></i> Orders</a>
+                <a href="#" class="nav-item"><i data-lucide="package"></i> Inventory</a>
+                <a href="#" class="nav-item"><i data-lucide="users"></i> Customers</a>
+                <a href="#" class="nav-item"><i data-lucide="bar-chart-3"></i> Reports</a>
+                <a href="#" class="nav-item"><i data-lucide="settings"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Banner SM: Top Alert Bar -->
+            <div class="banner-sm" id="banner-sm">
+                <div class="banner-sm-content">
+                    <i data-lucide="zap"></i>
+                    <span><strong>Flash Deal:</strong> Free delivery for orders over $50! Ends in 2 hours.</span>
+                </div>
+                <button class="btn-close" onclick="this.parentElement.style.display='none'"><i data-lucide="x"></i></button>
+            </div>
+
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="page-title">
+                    <button class="mobile-menu-toggle" id="menu-toggle">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <h1>Dashboard</h1>
+
+                    <p class="subtitle">Welcome back, Administrator</p>
+                </div>
+                <div class="topbar-actions">
+                    <button class="btn btn-primary" id="new-sale-btn">
+                        <i data-lucide="plus"></i> New Sale
+                    </button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" alt="User">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Promo Banner Slider (Swiper) -->
+            <section class="banner-section">
+                <div class="swiper promo-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide promo-slide slide-1">
+                            <div class="promo-content">
+                                <span class="promo-badge">Limited Offer</span>
+                                <h2>Flash Sale: 20% Off All Coffee</h2>
+                                <p>Boost your morning with our premium cold brews.</p>
+                                <button class="btn btn-white">Claim Offer</button>
+                            </div>
+                            <div class="promo-img">
+                                <i data-lucide="coffee"></i>
+                            </div>
+                        </div>
+                        <div class="swiper-slide promo-slide slide-2">
+                            <div class="promo-content">
+                                <span class="promo-badge">New Arrival</span>
+                                <h2>Fresh Avocado Toast Series</h2>
+                                <p>Try our new flavors with organic sourdough.</p>
+                                <button class="btn btn-white">Order Now</button>
+                            </div>
+                            <div class="promo-img">
+                                <i data-lucide="utensils"></i>
+                            </div>
+                        </div>
+                        <div class="swiper-slide promo-slide slide-3">
+                            <div class="promo-content">
+                                <span class="promo-badge">Membership</span>
+                                <h2>Join Vibe Rewards</h2>
+                                <p>Earn points on every purchase and get free drinks.</p>
+                                <button class="btn btn-white">Sign Up</button>
+                            </div>
+                            <div class="promo-img">
+                                <i data-lucide="award"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Swiper Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+
+            <!-- Quick Categories Slider -->
+            <section class="categories-slider-container">
+                <div class="categories-slider" id="categories-slider">
+                    <div class="category-card active" data-category="all">
+                        <i data-lucide="layout-grid"></i>
+                        <span>All Items</span>
+                    </div>
+                    <div class="category-card" data-category="beverages">
+                        <i data-lucide="coffee"></i>
+                        <span>Beverages</span>
+                    </div>
+                    <div class="category-card" data-category="food">
+                        <i data-lucide="utensils"></i>
+                        <span>Food</span>
+                    </div>
+                    <div class="category-card" data-category="snacks">
+                        <i data-lucide="cookie"></i>
+                        <span>Snacks</span>
+                    </div>
+                    <div class="category-card" data-category="desserts">
+                        <i data-lucide="ice-cream"></i>
+                        <span>Desserts</span>
+                    </div>
+                    <div class="category-card" data-category="deals">
+                        <i data-lucide="percent"></i>
+                        <span>Deals</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Grid -->
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <p class="stat-label">Total Revenue</p>
+                        <h3 class="stat-value">$12,845.50</h3>
+                        <span class="stat-trend trend-up"><i data-lucide="trending-up"></i> +12.5%</span>
+                    </div>
+                    <div class="stat-icon icon-revenue"><i data-lucide="dollar-sign"></i></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <p class="stat-label">Total Orders</p>
+                        <h3 class="stat-value">1,248</h3>
+                        <span class="stat-trend trend-up"><i data-lucide="trending-up"></i> +8.2%</span>
+                    </div>
+                    <div class="stat-icon icon-orders"><i data-lucide="shopping-bag"></i></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <p class="stat-label">New Customers</p>
+                        <h3 class="stat-value">84</h3>
+                        <span class="stat-trend trend-down"><i data-lucide="trending-down"></i> -2.4%</span>
+                    </div>
+                    <div class="stat-icon icon-customers"><i data-lucide="user-plus"></i></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <p class="stat-label">Avg. Order Value</p>
+                        <h3 class="stat-value">$10.30</h3>
+                        <span class="stat-trend trend-up"><i data-lucide="trending-up"></i> +4.1%</span>
+                    </div>
+                    <div class="stat-icon icon-avg"><i data-lucide="credit-card"></i></div>
+                </div>
+            </section>
+
+            <!-- Banner MD: Featured Promotion -->
+            <section class="banner-md-container">
+                <div class="banner-md">
+                    <div class="banner-md-content">
+                        <span class="promo-badge">Membership</span>
+                        <h3>Vibe Rewards Member?</h3>
+                        <p>Double points on all pastry items today! Don't miss out on your favorite treats.</p>
+                        <button class="btn btn-primary">Join Now</button>
+                    </div>
+                    <div class="banner-md-icon">
+                        <i data-lucide="star"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-layout">
+                <!-- Sales Chart Section -->
+                <section class="chart-section card">
+                    <div class="card-header">
+                        <h2>Sales Overview</h2>
+                        <div class="card-actions">
+                            <select class="form-select">
+                                <option>Last 7 Days</option>
+                                <option>Last 30 Days</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="mock-chart" id="sales-chart">
+                            <!-- Visualized with CSS Bars -->
+                            <div class="chart-bar" style="height: 60%;" data-label="Mon"></div>
+                            <div class="chart-bar" style="height: 80%;" data-label="Tue"></div>
+                            <div class="chart-bar" style="height: 45%;" data-label="Wed"></div>
+                            <div class="chart-bar" style="height: 90%;" data-label="Thu"></div>
+                            <div class="chart-bar" style="height: 70%;" data-label="Fri"></div>
+                            <div class="chart-bar" style="height: 55%;" data-label="Sat"></div>
+                            <div class="chart-bar" style="height: 40%;" data-label="Sun"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Top Products -->
+                <section class="products-section card">
+                    <div class="card-header">
+                        <h2>Top Products</h2>
+                    </div>
+                    <div class="product-list" id="top-products">
+                        <!-- Dynamic content via JS -->
+                    </div>
+                </section>
+
+                <!-- Recent Transactions -->
+                <section class="transactions-section card">
+                    <div class="card-header">
+                        <h2>Recent Transactions</h2>
+                        <button class="btn btn-text">View All</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transaction-table-body">
+                                <!-- Dynamic content via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-root"></div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
